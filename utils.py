@@ -2,9 +2,10 @@ import numpy as np
 import pymap3d.vincenty as pmv
 import scipy.optimize
 from tqdm.auto import tqdm
-import pandas as pd
 
 import constants
+
+""" utils.py module. Adapted from: https://www.kaggle.com/code/taroz1461/carrier-smoothing-robust-wls-kalman-smoother/notebook """
 
 
 def satellite_selection(df, column):
