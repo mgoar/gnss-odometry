@@ -67,9 +67,9 @@ def relcycleslip_factor_error(measurement: np.ndarray, this: gtsam.CustomFactor,
 
     key1 = this.keys()[0]
     key2 = this.keys()[1]
-    pos1, pos2 = values.atVector(key1), values.atVector(key2)
+    b1, b2 = values.atVector(key1), values.atVector(key2)
 
-    error = (pos2 - pos1)
+    error = (b2 - b1)
     if jacobians is not None:
         jacobians[0] = -np.eye(1)
         jacobians[1] = np.eye(1)
@@ -253,7 +253,7 @@ if __name__ == "__main__":
 
     score_fg = utils.calc_score(llh_fg, gt)
 
-    print(f"Score: {score_fg:.4f} [m]")
+    print(f"Score factor graph optimization: {score_fg:.4f} [m]")
 
     import matplotlib.pyplot as plt
     # Cycle slip for each SV
